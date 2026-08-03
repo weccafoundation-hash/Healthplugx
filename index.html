@@ -1,0 +1,3086 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="HealthPlugX is Africa's trusted healthcare marketplace. Discover, compare, and book verified hospitals, clinics, labs, pharmacies, and specialists across Nigeria — we connect you to care, we don't provide it."
+    />
+    <meta name="theme-color" content="#16A34A" />
+    <title>HealthPlugX — Connecting You to Trusted Healthcare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+        --primary: #16a34a;
+        --primary-dark: #166534;
+        --primary-light: #dcfce7;
+        --primary-50: #f0fdf4;
+        --primary-200: #bbf7d0;
+        --primary-300: #86efac;
+        --forest: #0c1f14;
+        --surface: #ffffff;
+        --surface-muted: #f8fafc;
+        --border: #e2e8f0;
+        --border-strong: #cbd5e1;
+        --text: #0f172a;
+        --text-secondary: #475569;
+        --text-muted: #94a3b8;
+        --warning: #f59e0b;
+        --radius-md: 12px;
+        --radius-lg: 16px;
+        --shadow-focus: 0 0 0 3px rgba(22, 163, 74, 0.35);
+        --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.04);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: var(--font-sans);
+        font-size: 1rem;
+        line-height: 1.5;
+        color: var(--text);
+        background: #fff;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: var(--font-display);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        margin: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      ul,
+      ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+      }
+
+      ::selection {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1080px;
+        margin-inline: auto;
+        padding-inline: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .container {
+          padding-inline: 2.5rem;
+        }
+      }
+
+      @media (min-width: 1280px) {
+        .container {
+          max-width: 1140px;
+        }
+      }
+
+      .page-section {
+        padding-block: 6rem;
+      }
+
+      @media (min-width: 768px) {
+        .page-section {
+          padding-block: 8rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .page-section {
+          padding-block: 9rem;
+        }
+      }
+
+      .cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.875rem;
+      }
+
+      .eyebrow {
+        margin-bottom: 1.25rem;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--primary);
+      }
+
+      .eyebrow.light {
+        color: var(--primary-200);
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+        color: var(--text);
+      }
+
+      .section-title.light {
+        color: #fff;
+      }
+
+      .section-desc {
+        margin-top: 1.25rem;
+        max-width: 28rem;
+        font-size: 15px;
+        line-height: 1.625;
+        color: var(--text-secondary);
+      }
+
+      .section-desc.light {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .section-heading {
+        margin-bottom: 3rem;
+        max-width: 40rem;
+      }
+
+      @media (min-width: 768px) {
+        .section-heading {
+          margin-bottom: 4rem;
+        }
+      }
+
+      .section-heading.mb-0 {
+        margin-bottom: 0;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        height: 2.75rem;
+        padding: 0 1.25rem;
+        border: none;
+        border-radius: var(--radius-md);
+        font-size: 0.875rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, opacity 0.2s;
+      }
+
+      .btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+      }
+
+      .btn-secondary {
+        background: var(--primary-light);
+        color: var(--primary-dark);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary-200);
+      }
+
+      .btn-outline {
+        background: #fff;
+        color: var(--text);
+        border: 1px solid var(--border-strong);
+      }
+
+      .btn-outline:hover {
+        background: var(--surface-muted);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--text-secondary);
+      }
+
+      .btn-ghost:hover {
+        background: var(--surface-muted);
+        color: var(--text);
+      }
+
+      .btn-lg {
+        height: 3rem;
+        padding: 0 1.75rem;
+        font-size: 1rem;
+      }
+
+      .btn-sm {
+        height: 2rem;
+        padding: 0 0.75rem;
+        font-size: 0.875rem;
+      }
+
+      .btn-white {
+        background: #fff;
+        color: var(--primary-dark);
+      }
+
+      .btn-white:hover {
+        background: var(--primary-50);
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.375rem;
+        width: 100%;
+      }
+
+      .field label {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text);
+      }
+
+      .field input,
+      .field select {
+        height: 2.75rem;
+        width: 100%;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: #fff;
+        padding: 0 0.875rem;
+        font-size: 0.875rem;
+        color: var(--text);
+        appearance: none;
+        transition: border-color 0.15s, box-shadow 0.15s;
+      }
+
+      .field input:focus,
+      .field select:focus {
+        border-color: var(--primary);
+        box-shadow: var(--shadow-focus);
+        outline: none;
+      }
+
+      .icon {
+        width: 1rem;
+        height: 1rem;
+        flex-shrink: 0;
+      }
+
+      .icon-sm {
+        width: 0.875rem;
+        height: 0.875rem;
+      }
+
+      .icon-md {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+
+      /* Announcement */
+      .announcement {
+        position: relative;
+        z-index: 110;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: var(--forest);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .announcement .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 2rem;
+      }
+
+      .announcement p {
+        text-align: center;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.025em;
+        transition: opacity 0.4s;
+      }
+
+      .announcement p.is-hidden {
+        opacity: 0;
+      }
+
+      /* Navbar */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        transition: background 0.3s, border-color 0.3s;
+        border-bottom: 1px solid transparent;
+        background: transparent;
+      }
+
+      .site-header.is-solid {
+        border-bottom-color: rgba(226, 232, 240, 0.8);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+
+      .nav-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        height: 4rem;
+      }
+
+      @media (min-width: 1024px) {
+        .nav-bar {
+          height: 4.25rem;
+        }
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+      }
+
+      .brand-mark {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 8px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        background: #fff;
+        color: var(--primary-dark);
+        transition: background 0.3s, color 0.3s;
+      }
+
+      .site-header.is-solid .brand-mark {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .brand-name {
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: #fff;
+        transition: color 0.3s;
+      }
+
+      .site-header.is-solid .brand-name {
+        color: var(--text);
+      }
+
+      .nav-desktop {
+        display: none;
+        align-items: center;
+        gap: 0.25rem;
+      }
+
+      @media (min-width: 1280px) {
+        .nav-desktop {
+          display: flex;
+        }
+      }
+
+      .nav-link {
+        border: none;
+        background: none;
+        border-radius: 8px;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      .nav-link:hover,
+      .nav-link.is-active {
+        color: #fff;
+      }
+
+      .site-header.is-solid .nav-link {
+        color: var(--text-secondary);
+      }
+
+      .site-header.is-solid .nav-link:hover,
+      .site-header.is-solid .nav-link.is-active {
+        color: var(--primary);
+      }
+
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .nav-actions .btn-ghost {
+        color: #fff;
+      }
+
+      .nav-actions .btn-ghost:hover {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      .site-header.is-solid .nav-actions .btn-ghost {
+        color: var(--text-secondary);
+      }
+
+      .site-header.is-solid .nav-actions .btn-ghost:hover {
+        background: var(--surface-muted);
+        color: var(--text);
+      }
+
+      .nav-cta-desktop {
+        display: none;
+      }
+
+      @media (min-width: 640px) {
+        .nav-cta-desktop {
+          display: inline-flex;
+        }
+      }
+
+      .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .site-header.is-solid .menu-toggle {
+        color: var(--text);
+      }
+
+      @media (min-width: 1280px) {
+        .menu-toggle {
+          display: none;
+        }
+      }
+
+      .mobile-nav {
+        display: none;
+        border-top: 1px solid var(--border);
+        background: #fff;
+        padding: 1rem 1.25rem;
+      }
+
+      .mobile-nav.is-open {
+        display: block;
+      }
+
+      @media (min-width: 1280px) {
+        .mobile-nav {
+          display: none !important;
+        }
+      }
+
+      .mobile-nav a,
+      .mobile-nav button.nav-mobile-link {
+        display: block;
+        width: 100%;
+        border: none;
+        background: none;
+        border-radius: 8px;
+        padding: 0.625rem 0.75rem;
+        text-align: left;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        cursor: pointer;
+      }
+
+      .mobile-nav a:hover,
+      .mobile-nav button.nav-mobile-link:hover {
+        background: var(--surface-muted);
+      }
+
+      .mobile-nav .btn {
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+
+      /* Hero */
+      .hero {
+        position: relative;
+        margin-top: -4rem;
+        min-height: 100svh;
+        overflow: hidden;
+        padding-top: 4rem;
+        color: #fff;
+      }
+
+      @media (min-width: 1024px) {
+        .hero {
+          margin-top: -4.25rem;
+          padding-top: 4.25rem;
+        }
+      }
+
+      .hero-bg,
+      .hero-glow,
+      .hero-noise {
+        position: absolute;
+        inset: 0;
+      }
+
+      .hero-bg {
+        background: var(--forest);
+      }
+
+      .hero-noise {
+        opacity: 0.07;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      }
+
+      .hero-inner {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: calc(100svh - 4rem);
+        padding-top: 7rem;
+        padding-bottom: 4rem;
+      }
+
+      @media (min-width: 768px) {
+        .hero-inner {
+          padding-top: 9rem;
+          padding-bottom: 6rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .hero-inner {
+          min-height: calc(100svh - 4.25rem);
+        }
+      }
+
+      .hero-kicker {
+        margin-bottom: 2rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--primary-200);
+      }
+
+      .hero h1 {
+        font-size: clamp(2.75rem, 8vw, 5.5rem);
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+        color: #fff;
+      }
+
+      .hero-lead {
+        margin-top: 2rem;
+        max-width: 28rem;
+        font-size: 1rem;
+        line-height: 1.625;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      @media (min-width: 768px) {
+        .hero-lead {
+          font-size: 1.125rem;
+        }
+      }
+
+      .hero-ctas {
+        margin-top: 3rem;
+      }
+
+      .link-text {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        height: 3rem;
+        padding: 0 0.5rem;
+        border: none;
+        background: none;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.8);
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+
+      .link-text:hover {
+        color: #fff;
+      }
+
+      .hero-disclaimer {
+        margin-top: 4rem;
+        max-width: 24rem;
+        font-size: 11px;
+        line-height: 1.625;
+        letter-spacing: 0.025em;
+        color: rgba(255, 255, 255, 0.4);
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(28px);
+        animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+
+      .fade-up-late {
+        opacity: 0;
+        animation: fadeIn 0.6s ease 0.6s forwards;
+      }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Search */
+      .search-section {
+        border-bottom: 1px solid var(--border);
+        background: #fff;
+        padding: 5rem 0;
+      }
+
+      @media (min-width: 768px) {
+        .search-section {
+          padding: 6rem 0;
+        }
+      }
+
+      .search-grid {
+        display: grid;
+        gap: 3rem;
+      }
+
+      @media (min-width: 1024px) {
+        .search-grid {
+          grid-template-columns: 0.9fr 1.4fr;
+          align-items: end;
+          gap: 4rem;
+        }
+      }
+
+      .search-grid h2 {
+        font-size: 1.875rem;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+
+      @media (min-width: 768px) {
+        .search-grid h2 {
+          font-size: 2.25rem;
+        }
+      }
+
+      .search-form {
+        display: grid;
+        gap: 1rem;
+      }
+
+      @media (min-width: 640px) {
+        .search-form {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .search-form .full {
+          grid-column: 1 / -1;
+        }
+      }
+
+      /* Categories */
+      .cat-list {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .cat-list li + li {
+        border-top: 1px solid var(--border);
+      }
+
+      .cat-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        transition: background 0.2s;
+      }
+
+      @media (min-width: 768px) {
+        .cat-link {
+          padding: 1.75rem 0;
+        }
+      }
+
+      .cat-link:hover {
+        background: rgba(248, 250, 252, 0.6);
+      }
+
+      .cat-left {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+      }
+
+      .cat-left svg {
+        color: var(--primary);
+      }
+
+      .cat-label {
+        display: block;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      @media (min-width: 768px) {
+        .cat-label {
+          font-size: 1.125rem;
+        }
+      }
+
+      .cat-desc {
+        display: block;
+        margin-top: 0.25rem;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+      }
+
+      .cat-arrow {
+        color: var(--text-muted);
+        transition: transform 0.2s, color 0.2s;
+      }
+
+      .cat-link:hover .cat-arrow {
+        color: var(--primary);
+        transform: translate(2px, -2px);
+      }
+
+      /* Why */
+      .why {
+        background: var(--forest);
+        color: #fff;
+      }
+
+      .why-grid {
+        display: grid;
+        gap: 3.5rem 3rem;
+      }
+
+      @media (min-width: 768px) {
+        .why-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .why-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+
+      .why-num {
+        margin-bottom: 1rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.75rem;
+        color: var(--primary-300);
+      }
+
+      .why h3 {
+        font-size: 1.25rem;
+        letter-spacing: -0.02em;
+      }
+
+      .why article p:last-child {
+        margin-top: 0.75rem;
+        font-size: 0.875rem;
+        line-height: 1.625;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* How */
+      .how-grid {
+        display: grid;
+        gap: 4rem;
+      }
+
+      @media (min-width: 1024px) {
+        .how-grid {
+          grid-template-columns: 0.85fr 1.15fr;
+          gap: 6rem;
+        }
+
+        .how-sticky {
+          position: sticky;
+          top: 7rem;
+          align-self: start;
+        }
+      }
+
+      .how-list li {
+        border-top: 1px solid var(--border);
+        padding: 2.5rem 0;
+      }
+
+      .how-list li:last-child {
+        border-bottom: 1px solid var(--border);
+      }
+
+      .how-row {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .how-row {
+          gap: 2.5rem;
+        }
+      }
+
+      .how-num {
+        width: 2.5rem;
+        flex-shrink: 0;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.875rem;
+        color: var(--primary);
+      }
+
+      .how-list h3 {
+        font-size: 1.5rem;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+
+      .how-list p {
+        margin-top: 0.75rem;
+        max-width: 28rem;
+        font-size: 0.875rem;
+        line-height: 1.625;
+        color: var(--text-secondary);
+      }
+
+      @media (min-width: 768px) {
+        .how-list p {
+          font-size: 15px;
+        }
+      }
+
+      /* Providers */
+      .providers {
+        background: var(--surface-muted);
+      }
+
+      .providers-head {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-bottom: 3.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .providers-head {
+          flex-direction: row;
+          align-items: flex-end;
+          justify-content: space-between;
+        }
+      }
+
+      .view-all {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--primary);
+      }
+
+      .view-all:hover {
+        text-decoration: underline;
+      }
+
+      .provider-list {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        background: #fff;
+      }
+
+      .provider-list li + li {
+        border-top: 1px solid var(--border);
+      }
+
+      .provider-row {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+        padding: 1.75rem 0;
+      }
+
+      @media (min-width: 640px) {
+        .provider-row {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 2rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .provider-row {
+          padding: 2rem 0;
+        }
+      }
+
+      .provider-type {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .provider-name {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      @media (min-width: 768px) {
+        .provider-name {
+          font-size: 1.25rem;
+        }
+      }
+
+      .provider-name svg {
+        color: var(--primary);
+        flex-shrink: 0;
+      }
+
+      .provider-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+      }
+
+      .provider-meta span {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+      }
+
+      .star {
+        fill: var(--warning);
+        color: var(--warning);
+      }
+
+      .provider-actions {
+        display: flex;
+        flex-shrink: 0;
+        gap: 0.75rem;
+      }
+
+      .provider-actions .profile-link {
+        display: inline-flex;
+        align-items: center;
+        height: 2.5rem;
+        padding: 0 1rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        transition: color 0.2s;
+      }
+
+      .provider-actions .profile-link:hover {
+        color: var(--text);
+      }
+
+      .provider-actions .book-link {
+        display: inline-flex;
+        align-items: center;
+        height: 2.5rem;
+        padding: 0 1.25rem;
+        border-radius: var(--radius-lg);
+        background: var(--primary);
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: #fff;
+        transition: background 0.2s;
+      }
+
+      .provider-actions .book-link:hover {
+        background: var(--primary-dark);
+      }
+
+      /* Corporate */
+      .corporate-grid {
+        display: grid;
+        gap: 4rem;
+      }
+
+      @media (min-width: 1024px) {
+        .corporate-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 6rem;
+        }
+      }
+
+      .corporate-title {
+        max-width: 12ch;
+        font-size: 2.35rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+
+      @media (min-width: 768px) {
+        .corporate-title {
+          font-size: 3rem;
+        }
+      }
+
+      .corporate-lead {
+        margin-top: 1.5rem;
+        max-width: 28rem;
+        font-size: 15px;
+        line-height: 1.625;
+        color: var(--text-secondary);
+      }
+
+      .corporate-benefits {
+        display: grid;
+        gap: 0;
+      }
+
+      @media (min-width: 640px) {
+        .corporate-benefits {
+          grid-template-columns: 1fr 1fr;
+          column-gap: 2.5rem;
+        }
+      }
+
+      .corporate-benefits li {
+        border-top: 1px solid var(--border);
+        padding: 1.75rem 0;
+      }
+
+      .corporate-benefits li:first-child {
+        border-top: none;
+      }
+
+      @media (min-width: 640px) {
+        .corporate-benefits li:first-child,
+        .corporate-benefits li:nth-child(2) {
+          border-top: none;
+        }
+
+        .corporate-benefits li:nth-child(n + 3) {
+          border-top: 1px solid var(--border);
+        }
+      }
+
+      .corp-num {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      .corporate-benefits h3 {
+        margin-top: 0.75rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .corporate-benefits p {
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.625;
+        color: var(--text-secondary);
+      }
+
+      /* Stats */
+      .stats {
+        background: var(--forest);
+        padding: 5rem 0;
+      }
+
+      @media (min-width: 768px) {
+        .stats {
+          padding: 7rem 0;
+        }
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3.5rem 2rem;
+      }
+
+      @media (min-width: 1024px) {
+        .stats-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .stat-value {
+        font-family: var(--font-display);
+        font-size: 2.75rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        color: #fff;
+      }
+
+      @media (min-width: 768px) {
+        .stat-value {
+          font-size: 3rem;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .stat-value {
+          font-size: 3.5rem;
+        }
+      }
+
+      .stat-value .suffix {
+        color: var(--primary-300);
+      }
+
+      .stat-label {
+        margin-top: 0.75rem;
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      /* Testimonials */
+      .quote {
+        max-width: 48rem;
+        margin-inline: auto;
+      }
+
+      .quote-text {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 1.35;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+        color: var(--text);
+        transition: opacity 0.35s;
+      }
+
+      @media (min-width: 768px) {
+        .quote-text {
+          font-size: 2rem;
+          line-height: 1.25;
+        }
+      }
+
+      .quote-text.is-fading {
+        opacity: 0;
+      }
+
+      .quote-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-top: 2.5rem;
+        border-top: 1px solid var(--border);
+        padding-top: 1.5rem;
+      }
+
+      .quote-footer strong {
+        display: block;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .quote-footer .role {
+        margin-top: 0.25rem;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+      }
+
+      .quote-type {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 2.5rem;
+      }
+
+      .carousel-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: border-color 0.2s, color 0.2s;
+      }
+
+      .carousel-btn:hover {
+        border-color: var(--text);
+        color: var(--text);
+      }
+
+      .carousel-index {
+        margin-left: 0.5rem;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      /* Trust */
+      .trust {
+        background: var(--surface-muted);
+      }
+
+      .trust-list {
+        display: grid;
+        gap: 2rem;
+        border-top: 1px solid var(--border);
+        padding-top: 3rem;
+      }
+
+      @media (min-width: 640px) {
+        .trust-list {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .trust-list {
+          grid-template-columns: repeat(5, 1fr);
+          gap: 1.5rem;
+        }
+      }
+
+      .trust-num {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        color: var(--primary);
+      }
+
+      .trust-label {
+        margin-top: 0.75rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .trust-desc {
+        margin-top: 0.5rem;
+        font-size: 0.75rem;
+        line-height: 1.625;
+        color: var(--text-muted);
+      }
+
+      /* App promo */
+      .app-grid {
+        display: grid;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      @media (min-width: 1024px) {
+        .app-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 6rem;
+        }
+      }
+
+      .store-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+
+      .store-badges span {
+        display: inline-flex;
+        align-items: center;
+        height: 2.75rem;
+        padding: 0 1rem;
+        border: 1px solid var(--border);
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+      }
+
+      .phone-wrap {
+        display: flex;
+        justify-content: center;
+      }
+
+      .phone {
+        width: 220px;
+        height: 420px;
+        border-radius: 2rem;
+        border: 1px solid var(--border);
+        background: var(--forest);
+        padding: 0.75rem;
+      }
+
+      .phone-screen {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        border-radius: 1.5rem;
+        background: #fff;
+        padding: 1.25rem;
+      }
+
+      .phone-brand {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        color: var(--primary);
+      }
+
+      .phone-hero {
+        margin-top: 2rem;
+        height: 7rem;
+        background: linear-gradient(135deg, #0c1f14, #16a34a);
+      }
+
+      .phone-lines {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .phone-lines span {
+        display: block;
+        height: 0.625rem;
+        background: var(--surface-muted);
+      }
+
+      .phone-lines span:first-child {
+        width: 75%;
+      }
+
+      .phone-lines span:last-child {
+        width: 50%;
+      }
+
+      .phone-ctas {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .phone-ctas .fill {
+        height: 2.5rem;
+        background: var(--primary);
+      }
+
+      .phone-ctas .outline {
+        height: 2.5rem;
+        border: 1px solid var(--border);
+      }
+
+      /* FAQ */
+      .faq {
+        background: var(--surface-muted);
+      }
+
+      .faq-grid {
+        display: grid;
+        gap: 3.5rem;
+      }
+
+      @media (min-width: 1024px) {
+        .faq-grid {
+          grid-template-columns: 0.8fr 1.2fr;
+          gap: 5rem;
+        }
+      }
+
+      .faq-list {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .faq-item + .faq-item {
+        border-top: 1px solid var(--border);
+      }
+
+      .faq-trigger {
+        display: flex;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 1.5rem 0;
+        border: none;
+        background: none;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .faq-trigger span {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      @media (min-width: 768px) {
+        .faq-trigger span {
+          font-size: 1rem;
+        }
+      }
+
+      .faq-trigger svg {
+        margin-top: 0.25rem;
+        color: var(--text-muted);
+        flex-shrink: 0;
+      }
+
+      .faq-panel {
+        display: none;
+        padding: 0 2.5rem 1.5rem 0;
+        font-size: 0.875rem;
+        line-height: 1.625;
+        color: var(--text-secondary);
+      }
+
+      .faq-item.is-open .faq-panel {
+        display: block;
+      }
+
+      .faq-item .icon-minus {
+        display: none;
+      }
+
+      .faq-item.is-open .icon-plus {
+        display: none;
+      }
+
+      .faq-item.is-open .icon-minus {
+        display: block;
+      }
+
+      /* Newsletter */
+      .newsletter {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        background: #fff;
+        padding: 5rem 0;
+      }
+
+      @media (min-width: 768px) {
+        .newsletter {
+          padding: 6rem 0;
+        }
+      }
+
+      .newsletter-grid {
+        display: grid;
+        gap: 2.5rem;
+        align-items: end;
+      }
+
+      @media (min-width: 1024px) {
+        .newsletter-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+        }
+      }
+
+      .newsletter h2 {
+        font-size: 1.875rem;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+
+      @media (min-width: 768px) {
+        .newsletter h2 {
+          font-size: 2.25rem;
+        }
+      }
+
+      .newsletter .lead {
+        margin-top: 1rem;
+        max-width: 24rem;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      @media (min-width: 640px) {
+        .newsletter-form {
+          flex-direction: row;
+          align-items: stretch;
+        }
+
+        .newsletter-form .field {
+          flex: 1;
+        }
+
+        .newsletter-form .btn {
+          flex-shrink: 0;
+          min-width: 8rem;
+          height: 2.75rem;
+        }
+      }
+
+      .newsletter-form input {
+        background: var(--surface-muted);
+      }
+
+      .newsletter-done {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--primary);
+      }
+
+      /* CTA banner */
+      .cta-banner {
+        position: relative;
+        overflow: hidden;
+        background: var(--forest);
+        padding: 6rem 0;
+        color: #fff;
+        text-align: center;
+      }
+
+      @media (min-width: 768px) {
+        .cta-banner {
+          padding: 8rem 0;
+        }
+      }
+
+      .cta-banner h2 {
+        margin-inline: auto;
+        max-width: 40rem;
+        font-size: 2.25rem;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        text-wrap: balance;
+      }
+
+      @media (min-width: 768px) {
+        .cta-banner h2 {
+          font-size: 3rem;
+        }
+      }
+
+      .cta-banner .lead {
+        margin: 1.5rem auto 0;
+        max-width: 28rem;
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      .cta-banner .cta-row {
+        margin-top: 3rem;
+        justify-content: center;
+      }
+
+      /* Footer */
+      .site-footer {
+        border-top: 1px solid var(--border);
+        background: #fff;
+      }
+
+      .footer-inner {
+        padding: 4rem 0;
+      }
+
+      @media (min-width: 768px) {
+        .footer-inner {
+          padding: 5rem 0;
+        }
+      }
+
+      .footer-grid {
+        display: grid;
+        gap: 3.5rem;
+      }
+
+      @media (min-width: 1024px) {
+        .footer-grid {
+          grid-template-columns: repeat(12, 1fr);
+        }
+
+        .footer-brand {
+          grid-column: span 4;
+        }
+
+        .footer-cols {
+          grid-column: span 5;
+        }
+
+        .footer-news {
+          grid-column: span 3;
+        }
+      }
+
+      .footer-brand .brand {
+        margin-bottom: 1rem;
+      }
+
+      .footer-brand .brand-mark {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .footer-brand .brand-name {
+        color: var(--text);
+        font-size: 1rem;
+      }
+
+      .footer-tagline {
+        max-width: 20rem;
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+      }
+
+      .footer-note {
+        margin-top: 1rem;
+        max-width: 20rem;
+        font-size: 0.75rem;
+        line-height: 1.625;
+        color: var(--text-muted);
+      }
+
+      .social {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        border: 1px solid var(--border);
+        color: var(--text-secondary);
+        transition: border-color 0.2s, color 0.2s;
+      }
+
+      .social a:hover {
+        border-color: var(--text);
+        color: var(--text);
+      }
+
+      .footer-cols {
+        display: grid;
+        gap: 2.5rem;
+      }
+
+      @media (min-width: 640px) {
+        .footer-cols {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .footer-cols {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .footer-col-title {
+        margin-bottom: 1rem;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .footer-cols ul li + li {
+        margin-top: 0.75rem;
+      }
+
+      .footer-cols a {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        transition: color 0.2s;
+      }
+
+      .footer-cols a:hover {
+        color: var(--text);
+      }
+
+      .footer-news form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .footer-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 4rem;
+        border-top: 1px solid var(--border);
+        padding-top: 1.5rem;
+      }
+
+      @media (min-width: 640px) {
+        .footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+
+      .footer-bottom p {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(16px);
+        transition: opacity 0.55s ease, transform 0.55s ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Announcement bar -->
+    <div class="announcement" role="region" aria-label="Announcements">
+      <div class="container">
+        <p id="announcement-text">Now available in Lagos, Abuja &amp; Port Harcourt</p>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <header class="site-header" id="site-header">
+      <div class="container nav-bar">
+        <a class="brand" href="#top" aria-label="HealthPlugX home">
+          <span class="brand-mark">HX</span>
+          <span class="brand-name">HealthPlugX</span>
+        </a>
+
+        <nav class="nav-desktop" aria-label="Primary">
+          <a class="nav-link is-active" href="#top">Home</a>
+          <a class="nav-link" href="#search">Find Providers</a>
+          <button type="button" class="nav-link" data-scroll="corporate">Corporate Wellness</button>
+          <button type="button" class="nav-link" data-scroll="providers">For Providers</button>
+          <a class="nav-link" href="#trust">About</a>
+          <a class="nav-link" href="#cta">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-ghost btn-sm nav-cta-desktop" href="#newsletter">Login</a>
+          <a class="btn btn-sm nav-cta-desktop btn-white" id="nav-book" href="#search">Book Appointment</a>
+          <button
+            type="button"
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <svg id="icon-menu" class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 5h16M4 12h16M4 19h16" />
+            </svg>
+            <svg id="icon-close" class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display: none">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="#top" data-close-menu>Home</a>
+        <a href="#search" data-close-menu>Find Providers</a>
+        <button type="button" class="nav-mobile-link" data-scroll="corporate" data-close-menu>Corporate Wellness</button>
+        <button type="button" class="nav-mobile-link" data-scroll="providers" data-close-menu>For Providers</button>
+        <a href="#trust" data-close-menu>About</a>
+        <a href="#cta" data-close-menu>Contact</a>
+        <a class="btn btn-primary" href="#search" data-close-menu>Book Appointment</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <!-- Hero -->
+      <section class="hero" id="top" aria-labelledby="hero-heading">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div
+          class="hero-glow"
+          aria-hidden="true"
+          style="
+            background-image:
+              radial-gradient(ellipse 90% 70% at 70% 20%, rgba(22, 163, 74, 0.45), transparent 55%),
+              radial-gradient(ellipse 60% 50% at 10% 80%, rgba(22, 101, 52, 0.5), transparent 50%),
+              linear-gradient(180deg, transparent 40%, rgba(8, 20, 12, 0.85) 100%);
+          "
+        ></div>
+        <div class="hero-noise" aria-hidden="true"></div>
+
+        <div class="container hero-inner">
+          <div class="fade-up" style="max-width: 48rem">
+            <p class="hero-kicker">HealthPlugX</p>
+            <h1 id="hero-heading">
+              Connecting You<br />
+              to Trusted<br />
+              Healthcare.
+            </h1>
+            <p class="hero-lead">
+              Discover, compare, and book verified providers across Nigeria —
+              hospitals, clinics, labs, and more.
+            </p>
+            <div class="cta-row hero-ctas">
+              <a class="btn btn-lg btn-white" href="#search" style="min-width: 10.5rem">
+                Find Providers
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </a>
+              <a class="link-text" href="#providers">
+                Become a Provider
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <p class="hero-disclaimer fade-up-late">
+            A technology marketplace. We do not provide medical care — we connect
+            you with verified third-party healthcare providers.
+          </p>
+        </div>
+      </section>
+
+      <!-- Smart search -->
+      <section class="search-section" id="search" aria-labelledby="search-heading">
+        <div class="container">
+          <div class="search-grid reveal">
+            <div>
+              <p class="eyebrow" style="margin-bottom: 1rem">Search</p>
+              <h2 id="search-heading">Start with what you need.</h2>
+            </div>
+            <form class="search-form" id="search-form" role="search">
+              <div class="field">
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                  <option value="">Provider type</option>
+                  <option value="doctor">Doctor</option>
+                  <option value="hospital">Hospital</option>
+                  <option value="laboratory">Laboratory</option>
+                  <option value="pharmacy">Pharmacy</option>
+                  <option value="physiotherapy">Physiotherapist</option>
+                  <option value="nutrition">Nutritionist</option>
+                  <option value="mental_health">Mental Health</option>
+                  <option value="home_healthcare">Home Care</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="city">Location</label>
+                <select id="city" name="city">
+                  <option value="">City</option>
+                  <option>Lagos</option>
+                  <option>Abuja</option>
+                  <option>Port Harcourt</option>
+                  <option>Ibadan</option>
+                  <option>Kano</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="specialty">Specialty</label>
+                <select id="specialty" name="specialty">
+                  <option value="">Any</option>
+                  <option>General Practice</option>
+                  <option>Cardiology</option>
+                  <option>Dermatology</option>
+                  <option>Pediatrics</option>
+                  <option>Obstetrics &amp; Gynaecology</option>
+                  <option>Orthopedics</option>
+                  <option>Neurology</option>
+                  <option>Oncology</option>
+                  <option>Ophthalmology</option>
+                  <option>ENT</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="when">When</label>
+                <select id="when" name="when">
+                  <option value="">Any time</option>
+                  <option value="today">Today</option>
+                  <option value="week">This week</option>
+                  <option value="month">This month</option>
+                </select>
+              </div>
+              <div class="full">
+                <button type="submit" class="btn btn-primary btn-lg" style="min-width: 12rem">
+                  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="m21 21-4.3-4.3" />
+                  </svg>
+                  Search marketplace
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Categories -->
+      <section class="page-section" style="background: #fff" aria-labelledby="categories-heading">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Categories</p>
+            <h2 class="section-title">Every kind of care. One marketplace.</h2>
+            <p class="section-desc">Browse verified partners by the service you need.</p>
+          </div>
+          <h2 id="categories-heading" class="sr-only">Healthcare categories</h2>
+          <ul class="cat-list">
+            <li>
+              <a class="cat-link" href="#search">
+                <span class="cat-left">
+                  <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 2v2M11 16v2M4.22 4.22l1.42 1.42M14.36 14.36l1.42 1.42M2 11h2M16 11h2M4.22 17.78l1.42-1.42M14.36 7.64l1.42-1.42"/><circle cx="11" cy="11" r="4"/><path d="M19 19v-4h-2v4h-2v2h2v2h2v-2h2v-2z"/></svg>
+                  <span>
+                    <span class="cat-label">Doctors</span>
+                    <span class="cat-desc">Consult verified specialists</span>
+                  </span>
+                </span>
+                <svg class="icon cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="cat-link" href="#search">
+                <span class="cat-left">
+                  <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M6 12h12"/><path d="M6 16h12"/><path d="M10 6h.01M14 6h.01M10 10h.01M14 10h.01"/></svg>
+                  <span>
+                    <span class="cat-label">Hospitals</span>
+                    <span class="cat-desc">Leading hospital partners</span>
+                  </span>
+                </span>
+                <svg class="icon cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="cat-link" href="#search">
+                <span class="cat-left">
+                  <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 18v-7"/><path d="M11.12 2.1A3 3 0 0 1 15 5v1"/><path d="M14 13h6v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6h6"/><path d="M14 9V5a3 3 0 0 0-6 0v4"/><rect width="20" height="6" x="2" y="9" rx="1"/></svg>
+                  <span>
+                    <span class="cat-label">Clinics</span>
+                    <span class="cat-desc">Primary &amp; specialty clinics</span>
+                  </span>
+                </span>
+                <svg class="icon cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="cat-link" href="#search">
+                <span class="cat-left">
+                  <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2"/><path d="M8.5 2h7"/><path d="M7 16h10"/></svg>
+                  <span>
+                    <span class="cat-label">Laboratories</span>
+                    <span class="cat-desc">Diagnostics &amp; imaging</span>
+                  </span>
+                </span>
+                <svg class="icon cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="cat-link" href="#search">
+                <span class="cat-left">
+                  <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg>
+                  <span>
+                    <span class="cat-label">Pharmacies</span>
+                    <span class="cat-desc">Licensed pharmacies</span>
+                  </span>
+                </span>
+                <svg class="icon cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="cat-link" href="#search">
+                <span class="cat-left">
+                  <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/><path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/><path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/><path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/><path d="M6.003 5.125A3 3 0 0 0 6.401 6.5"/><path d="M3.477 10.896a4 4 0 0 1 .585-.396"/><path d="M19.938 10.5a4 4 0 0 1 .585.396"/><path d="M6 18a4 4 0 0 1-1.967-.516"/><path d="M19.967 17.484A4 4 0 0 1 18 18"/></svg>
+                  <span>
+                    <span class="cat-label">Mental Health</span>
+                    <span class="cat-desc">Therapists &amp; psychiatrists</span>
+                  </span>
+                </span>
+                <svg class="icon cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="cat-link" href="#search">
+                <span class="cat-left">
+                  <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 3c-2.35 0-4 1.92-4 1.92s-1.65-1.92-4-1.92A4.91 4.91 0 0 0 2 9.78C2 14 5 22 8 22c1.25 0 2.5-1.06 4-1.06Z"/><path d="M10 2c1 .5 2 2 2 5"/></svg>
+                  <span>
+                    <span class="cat-label">Nutrition</span>
+                    <span class="cat-desc">Registered dietitians</span>
+                  </span>
+                </span>
+                <svg class="icon cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="cat-link" href="#search">
+                <span class="cat-left">
+                  <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
+                  <span>
+                    <span class="cat-label">Physiotherapy</span>
+                    <span class="cat-desc">Rehab &amp; sports physio</span>
+                  </span>
+                </span>
+                <svg class="icon cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="cat-link" href="#search">
+                <span class="cat-left">
+                  <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                  <span>
+                    <span class="cat-label">Home Care</span>
+                    <span class="cat-desc">Nursing at your doorstep</span>
+                  </span>
+                </span>
+                <svg class="icon cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="cat-link" href="#search">
+                <span class="cat-left">
+                  <svg class="icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 10H6"/><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.28a1 1 0 0 0-.684-.948l-1.923-.641a1 1 0 0 1-.578-.502l-1.539-3.076A1 1 0 0 0 16.382 8H14"/><path d="M8 8v4"/><path d="M9 18h6"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                  <span>
+                    <span class="cat-label">Ambulance Services</span>
+                    <span class="cat-desc">Emergency dispatch partners</span>
+                  </span>
+                </span>
+                <svg class="icon cat-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Why choose -->
+      <section class="page-section why" aria-labelledby="why-heading">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow light">Why HealthPlugX</p>
+            <h2 class="section-title light">Built for trust at every step.</h2>
+            <p class="section-desc light">
+              A marketplace that helps you discover care — without pretending to be the clinic.
+            </p>
+          </div>
+          <h2 id="why-heading" class="sr-only">Why choose HealthPlugX</h2>
+          <div class="why-grid">
+            <article>
+              <p class="why-num">01</p>
+              <h3>Verified Providers</h3>
+              <p>Only licensed, credential-checked partners appear on HealthPlugX.</p>
+            </article>
+            <article>
+              <p class="why-num">02</p>
+              <h3>Easy Booking</h3>
+              <p>Compare options and book appointments in minutes.</p>
+            </article>
+            <article>
+              <p class="why-num">03</p>
+              <h3>Trusted Reviews</h3>
+              <p>Read verified patient experiences before you choose.</p>
+            </article>
+            <article>
+              <p class="why-num">04</p>
+              <h3>Corporate Solutions</h3>
+              <p>Manage employee wellness and utilisation in one place.</p>
+            </article>
+            <article>
+              <p class="why-num">05</p>
+              <h3>Secure Platform</h3>
+              <p>Protected accounts and privacy-first data practices.</p>
+            </article>
+            <article>
+              <p class="why-num">06</p>
+              <h3>Nationwide Access</h3>
+              <p>Connect with verified providers across Nigeria.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="page-section" style="background: #fff" aria-labelledby="how-heading">
+        <div class="container">
+          <div class="how-grid">
+            <div class="section-heading mb-0 how-sticky reveal">
+              <p class="eyebrow">How it works</p>
+              <h2 class="section-title">Four steps. Then care from your provider.</h2>
+              <p class="section-desc">
+                HealthPlugX handles discovery and booking. Independent providers deliver the care.
+              </p>
+            </div>
+            <h2 id="how-heading" class="sr-only">How HealthPlugX works</h2>
+            <ol class="how-list">
+              <li>
+                <div class="how-row">
+                  <span class="how-num">01</span>
+                  <div>
+                    <h3>Search</h3>
+                    <p>
+                      Find doctors, hospitals, labs, pharmacies, and specialists by location, specialty, or service.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="how-row">
+                  <span class="how-num">02</span>
+                  <div>
+                    <h3>Compare</h3>
+                    <p>
+                      Review ratings, services, availability, and insurance partners side by side.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="how-row">
+                  <span class="how-num">03</span>
+                  <div>
+                    <h3>Book</h3>
+                    <p>
+                      Choose a time that works, confirm details, and pay securely through the marketplace.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="how-row">
+                  <span class="how-num">04</span>
+                  <div>
+                    <h3>Receive Care</h3>
+                    <p>
+                      Attend your appointment with your chosen third-party provider. HealthPlugX connects — they deliver care.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured providers -->
+      <section class="page-section providers" id="providers" aria-labelledby="featured-heading">
+        <div class="container">
+          <div class="providers-head">
+            <div class="section-heading mb-0 reveal">
+              <p class="eyebrow">Partners</p>
+              <h2 class="section-title">Verified providers on the marketplace.</h2>
+              <p class="section-desc">Book hospitals, clinics, labs, and specialists across Nigeria.</p>
+            </div>
+            <a class="view-all" href="#search">
+              View all
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+          <h2 id="featured-heading" class="sr-only">Featured providers</h2>
+          <ul class="provider-list">
+            <li>
+              <div class="provider-row">
+                <div>
+                  <p class="provider-type">Hospital</p>
+                  <h3 class="provider-name">
+                    <span>Lagos Heart Care Centre</span>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Verified"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </h3>
+                  <div class="provider-meta">
+                    <span>
+                      <svg class="icon-sm star" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      4.8 · 342 reviews
+                    </span>
+                    <span>
+                      <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Lagos
+                    </span>
+                  </div>
+                </div>
+                <div class="provider-actions">
+                  <a class="profile-link" href="#providers">Profile</a>
+                  <a class="book-link" href="#search">Book</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="provider-row">
+                <div>
+                  <p class="provider-type">Clinic</p>
+                  <h3 class="provider-name">
+                    <span>Accra Wellness Clinic</span>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Verified"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </h3>
+                  <div class="provider-meta">
+                    <span>
+                      <svg class="icon-sm star" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      4.6 · 198 reviews
+                    </span>
+                    <span>
+                      <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Accra
+                    </span>
+                  </div>
+                </div>
+                <div class="provider-actions">
+                  <a class="profile-link" href="#providers">Profile</a>
+                  <a class="book-link" href="#search">Book</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="provider-row">
+                <div>
+                  <p class="provider-type">Diagnostic Laboratory</p>
+                  <h3 class="provider-name">
+                    <span>MediScan Diagnostics</span>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Verified"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </h3>
+                  <div class="provider-meta">
+                    <span>
+                      <svg class="icon-sm star" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      4.7 · 521 reviews
+                    </span>
+                    <span>
+                      <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Lagos
+                    </span>
+                  </div>
+                </div>
+                <div class="provider-actions">
+                  <a class="profile-link" href="#providers">Profile</a>
+                  <a class="book-link" href="#search">Book</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="provider-row">
+                <div>
+                  <p class="provider-type">Pharmacy</p>
+                  <h3 class="provider-name">
+                    <span>CarePlus Pharmacy</span>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Verified"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </h3>
+                  <div class="provider-meta">
+                    <span>
+                      <svg class="icon-sm star" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      4.5 · 876 reviews
+                    </span>
+                    <span>
+                      <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Lagos
+                    </span>
+                  </div>
+                </div>
+                <div class="provider-actions">
+                  <a class="profile-link" href="#providers">Profile</a>
+                  <a class="book-link" href="#search">Book</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="provider-row">
+                <div>
+                  <p class="provider-type">Mental Health</p>
+                  <h3 class="provider-name">
+                    <span>MindSpace Counselling</span>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Verified"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </h3>
+                  <div class="provider-meta">
+                    <span>
+                      <svg class="icon-sm star" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      4.8 · 267 reviews
+                    </span>
+                    <span>
+                      <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Lagos
+                    </span>
+                  </div>
+                </div>
+                <div class="provider-actions">
+                  <a class="profile-link" href="#providers">Profile</a>
+                  <a class="book-link" href="#search">Book</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="provider-row">
+                <div>
+                  <p class="provider-type">Nutrition</p>
+                  <h3 class="provider-name">
+                    <span>NutriAfrica Consult</span>
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-label="Verified"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg>
+                  </h3>
+                  <div class="provider-meta">
+                    <span>
+                      <svg class="icon-sm star" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                      4.7 · 89 reviews
+                    </span>
+                    <span>
+                      <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                      Lagos
+                    </span>
+                  </div>
+                </div>
+                <div class="provider-actions">
+                  <a class="profile-link" href="#providers">Profile</a>
+                  <a class="book-link" href="#search">Book</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Corporate wellness -->
+      <section class="page-section" id="corporate" style="background: #fff" aria-labelledby="corporate-heading">
+        <div class="container">
+          <div class="corporate-grid">
+            <div class="reveal">
+              <p class="eyebrow">Corporate wellness</p>
+              <h2 class="corporate-title" id="corporate-heading">Keep your workforce healthy.</h2>
+              <p class="corporate-lead">
+                Give employees access to verified healthcare partners — screenings,
+                mental wellness, vaccinations — from one dashboard.
+              </p>
+              <a class="btn btn-primary btn-lg" href="#cta" style="margin-top: 2.5rem; min-width: 12rem">
+                Talk to us
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+            <ul class="corporate-benefits">
+              <li>
+                <p class="corp-num">01</p>
+                <h3>Annual Screening</h3>
+                <p>Organisation-wide health checks with preferred provider networks.</p>
+              </li>
+              <li>
+                <p class="corp-num">02</p>
+                <h3>Medical Outreach</h3>
+                <p>On-site and community health programmes coordinated through partners.</p>
+              </li>
+              <li>
+                <p class="corp-num">03</p>
+                <h3>Executive Checkups</h3>
+                <p>Priority packages for leadership teams at verified hospitals.</p>
+              </li>
+              <li>
+                <p class="corp-num">04</p>
+                <h3>Vaccination Programs</h3>
+                <p>Seasonal and occupational immunisation campaigns.</p>
+              </li>
+              <li>
+                <p class="corp-num">05</p>
+                <h3>Mental Wellness</h3>
+                <p>Confidential counselling access for employees via verified partners.</p>
+              </li>
+              <li>
+                <p class="corp-num">06</p>
+                <h3>Employee Health Campaigns</h3>
+                <p>Track utilisation and run wellness initiatives at scale.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="stats" aria-labelledby="stats-heading">
+        <div class="container">
+          <h2 id="stats-heading" class="sr-only">Platform statistics</h2>
+          <div class="stats-grid">
+            <div data-count="5000" data-suffix="+">
+              <p class="stat-value"><span class="stat-num">0</span><span class="suffix">+</span></p>
+              <p class="stat-label">Verified Providers</p>
+            </div>
+            <div data-count="100000" data-suffix="+">
+              <p class="stat-value"><span class="stat-num">0</span><span class="suffix">+</span></p>
+              <p class="stat-label">Appointments</p>
+            </div>
+            <div data-count="36" data-suffix="">
+              <p class="stat-value"><span class="stat-num">0</span><span class="suffix"></span></p>
+              <p class="stat-label">States Covered</p>
+            </div>
+            <div data-count="98" data-suffix="%">
+              <p class="stat-value"><span class="stat-num">0</span><span class="suffix">%</span></p>
+              <p class="stat-label">Customer Satisfaction</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="page-section" style="background: #fff" aria-labelledby="testimonials-heading" aria-roledescription="carousel">
+        <div class="container">
+          <div class="section-heading reveal" style="margin-bottom: 4rem">
+            <p class="eyebrow">Voices</p>
+            <h2 class="section-title">What people say.</h2>
+          </div>
+          <h2 id="testimonials-heading" class="sr-only">Testimonials</h2>
+          <div class="quote">
+            <blockquote aria-live="polite">
+              <p class="quote-text" id="quote-text">
+                “I compared three cardiology centres in Lagos, booked online, and walked in knowing exactly what to expect. HealthPlugX made the hard part easy.”
+              </p>
+              <footer class="quote-footer">
+                <div>
+                  <strong id="quote-name">Ada Okonkwo</strong>
+                  <p class="role" id="quote-role">Patient · Lagos</p>
+                </div>
+                <p class="quote-type" id="quote-type">patient</p>
+              </footer>
+            </blockquote>
+            <div class="carousel-controls">
+              <button type="button" class="carousel-btn" id="quote-prev" aria-label="Previous">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button type="button" class="carousel-btn" id="quote-next" aria-label="Next">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+              <p class="carousel-index" id="quote-index">01 / 05</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust -->
+      <section class="page-section trust" id="trust" aria-labelledby="trust-heading">
+        <div class="container">
+          <div class="section-heading reveal">
+            <p class="eyebrow">Trust</p>
+            <h2 class="section-title">Confidence by design.</h2>
+            <p class="section-desc">Verification, security, and support behind every booking.</p>
+          </div>
+          <h2 id="trust-heading" class="sr-only">Trust</h2>
+          <ul class="trust-list">
+            <li>
+              <p class="trust-num">01</p>
+              <p class="trust-label">Verified Providers</p>
+              <p class="trust-desc">Licence &amp; credential checks</p>
+            </li>
+            <li>
+              <p class="trust-num">02</p>
+              <p class="trust-label">Secure Booking</p>
+              <p class="trust-desc">Encrypted checkout flow</p>
+            </li>
+            <li>
+              <p class="trust-num">03</p>
+              <p class="trust-label">Protected Platform</p>
+              <p class="trust-desc">Privacy-first architecture</p>
+            </li>
+            <li>
+              <p class="trust-num">04</p>
+              <p class="trust-label">Fast Support</p>
+              <p class="trust-desc">Human help when you need it</p>
+            </li>
+            <li>
+              <p class="trust-num">05</p>
+              <p class="trust-label">Nationwide Coverage</p>
+              <p class="trust-desc">Growing across Nigeria</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- App promo -->
+      <section class="page-section" style="background: #fff" aria-labelledby="app-heading">
+        <div class="container">
+          <div class="app-grid">
+            <div class="reveal">
+              <div class="section-heading" style="margin-bottom: 2.5rem">
+                <p class="eyebrow">Mobile</p>
+                <h2 class="section-title">Healthcare in your pocket.</h2>
+                <p class="section-desc">
+                  Search providers and manage bookings — coming soon on iOS and Android.
+                </p>
+              </div>
+              <h2 id="app-heading" class="sr-only">Mobile app</h2>
+              <div class="store-badges">
+                <span>Google Play · Coming soon</span>
+                <span>App Store · Coming soon</span>
+              </div>
+            </div>
+            <div class="phone-wrap" aria-hidden="true">
+              <div class="phone">
+                <div class="phone-screen">
+                  <p class="phone-brand">HEALTHPLUGX</p>
+                  <div class="phone-hero"></div>
+                  <div class="phone-lines">
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="phone-ctas">
+                    <div class="fill"></div>
+                    <div class="outline"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="page-section faq" aria-labelledby="faq-heading">
+        <div class="container">
+          <div class="faq-grid">
+            <div class="section-heading mb-0 reveal">
+              <p class="eyebrow">FAQ</p>
+              <h2 class="section-title">Answers, clearly.</h2>
+              <p class="section-desc">Bookings, verification, and how the marketplace works.</p>
+            </div>
+            <h2 id="faq-heading" class="sr-only">Frequently asked questions</h2>
+            <div class="faq-list" id="faq-list">
+              <div class="faq-item is-open">
+                <h3>
+                  <button type="button" class="faq-trigger" aria-expanded="true" aria-controls="faq-panel-0" id="faq-button-0">
+                    <span>How do bookings work?</span>
+                    <svg class="icon icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+                    <svg class="icon icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg>
+                  </button>
+                </h3>
+                <div class="faq-panel" id="faq-panel-0" role="region" aria-labelledby="faq-button-0">
+                  Search the marketplace, open a verified provider profile, select a service and time, then confirm. Payment is processed securely. The appointment is fulfilled by the independent healthcare provider you chose — not by HealthPlugX.
+                </div>
+              </div>
+              <div class="faq-item">
+                <h3>
+                  <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-1" id="faq-button-1">
+                    <span>How are providers verified?</span>
+                    <svg class="icon icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+                    <svg class="icon icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg>
+                  </button>
+                </h3>
+                <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-button-1">
+                  We review licences, facility credentials, and professional qualifications before a provider can list services. Verified partners display a badge on their marketplace profile.
+                </div>
+              </div>
+              <div class="faq-item">
+                <h3>
+                  <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-2" id="faq-button-2">
+                    <span>Can companies book services?</span>
+                    <svg class="icon icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+                    <svg class="icon icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg>
+                  </button>
+                </h3>
+                <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-button-2">
+                  Yes. Corporate organisations can enrol employees, run wellness programmes, and track utilisation through the corporate dashboard.
+                </div>
+              </div>
+              <div class="faq-item">
+                <h3>
+                  <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-3" id="faq-button-3">
+                    <span>Can I compare providers?</span>
+                    <svg class="icon icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+                    <svg class="icon icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg>
+                  </button>
+                </h3>
+                <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-button-3">
+                  Absolutely. Filter by location, specialty, ratings, and insurance partners, then compare services and reviews before you book.
+                </div>
+              </div>
+              <div class="faq-item">
+                <h3>
+                  <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-4" id="faq-button-4">
+                    <span>Is HealthPlugX a hospital or clinic?</span>
+                    <svg class="icon icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+                    <svg class="icon icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg>
+                  </button>
+                </h3>
+                <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-button-4">
+                  No. HealthPlugX is a technology marketplace. We connect you with independent, verified third-party healthcare providers. We do not provide medical care.
+                </div>
+              </div>
+              <div class="faq-item">
+                <h3>
+                  <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-panel-5" id="faq-button-5">
+                    <span>Which cities are supported?</span>
+                    <svg class="icon icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5v14"/></svg>
+                    <svg class="icon icon-minus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"/></svg>
+                  </button>
+                </h3>
+                <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-button-5">
+                  We currently spotlight Lagos, Abuja, Port Harcourt, and other major Nigerian cities, with expansion across all 36 states underway.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <section class="newsletter" id="newsletter" aria-labelledby="newsletter-heading">
+        <div class="container">
+          <div class="newsletter-grid reveal">
+            <div>
+              <h2 id="newsletter-heading">Stay updated.</h2>
+              <p class="lead">City launches and product news — occasionally.</p>
+            </div>
+            <form class="newsletter-form" id="newsletter-form">
+              <div class="field">
+                <label class="sr-only" for="newsletter-email">Email address</label>
+                <input id="newsletter-email" type="email" name="newsletter" placeholder="Email address" required aria-label="Email address" />
+              </div>
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+            <p class="newsletter-done" id="newsletter-done" hidden role="status">You're on the list.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA banner -->
+      <section class="cta-banner" id="cta" aria-labelledby="cta-heading">
+        <div
+          aria-hidden="true"
+          style="
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(22, 163, 74, 0.35), transparent 60%);
+          "
+        ></div>
+        <div class="container" style="position: relative">
+          <h2 id="cta-heading">Ready to find trusted healthcare?</h2>
+          <p class="lead">
+            Join patients, providers, and organisations on Nigeria's healthcare marketplace.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-lg btn-white" href="#search" style="min-width: 11rem">
+              Find Providers
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a class="link-text" href="#providers" style="color: rgba(255, 255, 255, 0.75)">
+              Become a Provider
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container footer-inner">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a class="brand" href="#top">
+              <span class="brand-mark">HX</span>
+              <span class="brand-name">HealthPlugX</span>
+            </a>
+            <p class="footer-tagline">Connecting You to Trusted Healthcare</p>
+            <p class="footer-note">A technology marketplace. We do not provide medical care.</p>
+            <div class="social">
+              <a href="https://twitter.com/healthplugx" target="_blank" rel="noreferrer" aria-label="X">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://linkedin.com/company/healthplugx" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.24 8.25h4.52V24H.24V8.25zM8.34 8.25h4.33v2.14h.06c.6-1.14 2.08-2.34 4.28-2.34 4.58 0 5.42 3.01 5.42 6.93V24h-4.52v-7.73c0-1.84-.03-4.21-2.56-4.21-2.57 0-2.96 2-2.96 4.07V24H8.34V8.25z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-cols">
+            <div>
+              <p class="footer-col-title">Company</p>
+              <ul>
+                <li><a href="#trust">About</a></li>
+                <li><a href="#cta">Contact</a></li>
+                <li><a href="#faq-heading">Help Center</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer-col-title">Marketplace</p>
+              <ul>
+                <li><a href="#search">Find Providers</a></li>
+                <li><a href="#search">Hospitals</a></li>
+                <li><a href="#search">Laboratories</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer-col-title">Partners</p>
+              <ul>
+                <li><a href="#providers">Become a Provider</a></li>
+                <li><a href="#corporate">Corporate Wellness</a></li>
+                <li><a href="#newsletter">Provider Login</a></li>
+              </ul>
+            </div>
+            <div>
+              <p class="footer-col-title">Legal</p>
+              <ul>
+                <li><a href="#trust">Privacy</a></li>
+                <li><a href="#trust">Terms</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-news">
+            <p class="footer-col-title">Newsletter</p>
+            <form id="footer-form">
+              <div class="field">
+                <label class="sr-only" for="footer-email">Email for newsletter</label>
+                <input id="footer-email" type="email" name="footer-email" placeholder="Email" required aria-label="Email for newsletter" />
+              </div>
+              <button type="submit" class="btn btn-outline" style="width: 100%">Join</button>
+            </form>
+            <p class="newsletter-done" id="footer-done" hidden>Subscribed.</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p id="copyright">© 2026 HealthPlugX</p>
+          <p>Lagos · Abuja · Nationwide</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        'use strict'
+
+        /* Announcement rotator */
+        var announcements = [
+          'Now available in Lagos, Abuja & Port Harcourt',
+          'Book healthcare services online in minutes',
+          'Corporate Wellness Programs Available',
+        ]
+        var annIndex = 0
+        var annEl = document.getElementById('announcement-text')
+        setInterval(function () {
+          annEl.classList.add('is-hidden')
+          setTimeout(function () {
+            annIndex = (annIndex + 1) % announcements.length
+            annEl.textContent = announcements[annIndex]
+            annEl.classList.remove('is-hidden')
+          }, 400)
+        }, 5000)
+
+        /* Sticky nav */
+        var header = document.getElementById('site-header')
+        var navBook = document.getElementById('nav-book')
+        function onScroll() {
+          var solid = window.scrollY > 40
+          header.classList.toggle('is-solid', solid)
+          if (navBook) {
+            navBook.classList.toggle('btn-white', !solid)
+            navBook.classList.toggle('btn-primary', solid)
+          }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true })
+        onScroll()
+
+        /* Mobile menu */
+        var toggle = document.getElementById('menu-toggle')
+        var mobileNav = document.getElementById('mobile-nav')
+        var iconMenu = document.getElementById('icon-menu')
+        var iconClose = document.getElementById('icon-close')
+        function setMenu(open) {
+          mobileNav.classList.toggle('is-open', open)
+          toggle.setAttribute('aria-expanded', open ? 'true' : 'false')
+          toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu')
+          iconMenu.style.display = open ? 'none' : 'block'
+          iconClose.style.display = open ? 'block' : 'none'
+          if (open) header.classList.add('is-solid')
+          else onScroll()
+        }
+        toggle.addEventListener('click', function () {
+          setMenu(!mobileNav.classList.contains('is-open'))
+        })
+        document.querySelectorAll('[data-close-menu]').forEach(function (el) {
+          el.addEventListener('click', function () {
+            setMenu(false)
+          })
+        })
+
+        /* Smooth scroll for data-scroll */
+        document.querySelectorAll('[data-scroll]').forEach(function (el) {
+          el.addEventListener('click', function () {
+            var id = el.getAttribute('data-scroll')
+            var target = document.getElementById(id)
+            if (target) target.scrollIntoView({ behavior: 'smooth' })
+          })
+        })
+
+        /* Search form */
+        document.getElementById('search-form').addEventListener('submit', function (e) {
+          e.preventDefault()
+          var providers = document.getElementById('providers')
+          if (providers) providers.scrollIntoView({ behavior: 'smooth' })
+        })
+
+        /* Newsletter / footer forms */
+        function wireSubscribe(formId, doneId, formHide) {
+          var form = document.getElementById(formId)
+          var done = document.getElementById(doneId)
+          form.addEventListener('submit', function (e) {
+            e.preventDefault()
+            form.hidden = true
+            done.hidden = false
+          })
+        }
+        wireSubscribe('newsletter-form', 'newsletter-done')
+        wireSubscribe('footer-form', 'footer-done')
+
+        /* FAQ accordion */
+        document.querySelectorAll('.faq-trigger').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var item = btn.closest('.faq-item')
+            var wasOpen = item.classList.contains('is-open')
+            document.querySelectorAll('.faq-item').forEach(function (other) {
+              other.classList.remove('is-open')
+              other.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false')
+            })
+            if (!wasOpen) {
+              item.classList.add('is-open')
+              btn.setAttribute('aria-expanded', 'true')
+            }
+          })
+        })
+
+        /* Testimonials */
+        var testimonials = [
+          {
+            quote:
+              'I compared three cardiology centres in Lagos, booked online, and walked in knowing exactly what to expect. HealthPlugX made the hard part easy.',
+            name: 'Ada Okonkwo',
+            role: 'Patient · Lagos',
+            type: 'patient',
+          },
+          {
+            quote:
+              'Our employees finally have one place to find trusted clinics and labs. Utilisation reports help us invest where it matters.',
+            name: 'Ngozi Eze',
+            role: 'HR Director · AfriTech Solutions',
+            type: 'corporate',
+          },
+          {
+            quote:
+              'Listing on HealthPlugX brought us patients who already understand our services. The booking flow reduces front-desk friction.',
+            name: 'Dr. Funke Adeyemi',
+            role: 'Cardiologist · Lagos Heart Care Centre',
+            type: 'provider',
+          },
+          {
+            quote:
+              'Home sample collection from a verified lab was arranged in under ten minutes. Results arrived when promised.',
+            name: 'Chinedu Okeke',
+            role: 'Patient · Abuja',
+            type: 'patient',
+          },
+          {
+            quote:
+              'We rolled out annual screenings for 700 staff across Lagos and Port Harcourt without juggling ten vendor contracts.',
+            name: 'Ifeoma Balogun',
+            role: 'People Ops · Golden Harvest Agro',
+            type: 'corporate',
+          },
+        ]
+        var tIndex = 0
+        var quoteText = document.getElementById('quote-text')
+        var quoteName = document.getElementById('quote-name')
+        var quoteRole = document.getElementById('quote-role')
+        var quoteType = document.getElementById('quote-type')
+        var quoteIndex = document.getElementById('quote-index')
+
+        function renderQuote(i) {
+          var t = testimonials[i]
+          quoteText.classList.add('is-fading')
+          setTimeout(function () {
+            quoteText.textContent = '“' + t.quote + '”'
+            quoteName.textContent = t.name
+            quoteRole.textContent = t.role
+            quoteType.textContent = t.type
+            quoteIndex.textContent =
+              String(i + 1).padStart(2, '0') + ' / ' + String(testimonials.length).padStart(2, '0')
+            quoteText.classList.remove('is-fading')
+          }, 200)
+        }
+
+        document.getElementById('quote-prev').addEventListener('click', function () {
+          tIndex = (tIndex - 1 + testimonials.length) % testimonials.length
+          renderQuote(tIndex)
+        })
+        document.getElementById('quote-next').addEventListener('click', function () {
+          tIndex = (tIndex + 1) % testimonials.length
+          renderQuote(tIndex)
+        })
+        setInterval(function () {
+          tIndex = (tIndex + 1) % testimonials.length
+          renderQuote(tIndex)
+        }, 7000)
+
+        /* Count-up stats */
+        function animateCount(el, end) {
+          var start = 0
+          var duration = 1600
+          var startTime = null
+          function step(ts) {
+            if (!startTime) startTime = ts
+            var p = Math.min((ts - startTime) / duration, 1)
+            var eased = 1 - Math.pow(1 - p, 3)
+            var value = Math.round(start + (end - start) * eased)
+            el.textContent = value.toLocaleString()
+            if (p < 1) requestAnimationFrame(step)
+          }
+          requestAnimationFrame(step)
+        }
+
+        var statsObserved = false
+        var statsSection = document.querySelector('.stats')
+        if (statsSection && 'IntersectionObserver' in window) {
+          var statsObs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting && !statsObserved) {
+                  statsObserved = true
+                  document.querySelectorAll('[data-count]').forEach(function (wrap) {
+                    var end = Number(wrap.getAttribute('data-count'))
+                    animateCount(wrap.querySelector('.stat-num'), end)
+                  })
+                  statsObs.disconnect()
+                }
+              })
+            },
+            { threshold: 0.3 },
+          )
+          statsObs.observe(statsSection)
+        }
+
+        /* Reveal on scroll */
+        if ('IntersectionObserver' in window) {
+          var revealObs = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('is-visible')
+                  revealObs.unobserve(entry.target)
+                }
+              })
+            },
+            { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+          )
+          document.querySelectorAll('.reveal').forEach(function (el) {
+            revealObs.observe(el)
+          })
+        } else {
+          document.querySelectorAll('.reveal').forEach(function (el) {
+            el.classList.add('is-visible')
+          })
+        }
+
+        /* Copyright year */
+        document.getElementById('copyright').textContent =
+          '© ' + new Date().getFullYear() + ' HealthPlugX'
+      })()
+    </script>
+  </body>
+</html>
